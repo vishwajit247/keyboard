@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0px; padding: 0px; outline: 0px;}
+        .display-led{
+            width: 80%;
+            height: 25vh;
+            margin: 50px auto;
+        }
+        .display-led textarea{
+            width: 100%;
+            height: 100%;
+            font-size: 30px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .con{
+            display: grid;
+            margin:  auto;
+            width: 80%;
+            height: 50vh;
+            background-color: rgb(50, 80, 80);
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+            gap: 5px;
+            padding: 20px;
+        }
+        button{
+            box-shadow: 0px 0px 5px 5px rgb(47, 47, 47);
+            background-color: rgb(50, 80, 80);
+            color: white;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="display-led">
+        <textarea name="" id="t1" cols="30" rows="10"></textarea>
+    </div>
+    <div class="con">
+        <button style="grid-column: 1/span 2; grid-row: 1/span 2;" onclick="fun('`')">`</button>
+        <button style="grid-column: 3/span 2; grid-row: 1/span 2;" onclick="fun('1')">1</button>
+        <button style="grid-column: 5/span 2; grid-row: 1/span 2;" onclick="fun('2')">2</button>
+        <button style="grid-column: 7/span 2; grid-row: 1/span 2;" onclick="fun('3')">3</button>
+        <button style="grid-column: 9/span 2; grid-row: 1/span 2;" onclick="fun('4')">4</button>
+        <button style="grid-column: 11/span 2; grid-row: 1/span 2;" onclick="fun('5')">5</button>
+        <button style="grid-column: 13/span 2; grid-row: 1/span 2;" onclick="fun('6')">6</button>
+        <button style="grid-column: 15/span 2; grid-row: 1/span 2;" onclick="fun('7')">7</button>
+        <button style="grid-column: 17/span 2; grid-row: 1/span 2;" onclick="fun('8')">8</button>
+        <button style="grid-column: 19/span 2; grid-row: 1/span 2;" onclick="fun('9')">9</button>
+        <button style="grid-column: 21/span 2; grid-row: 1/span 2;" onclick="fun('0')">0</button>
+        <button style="grid-column: 23/span 2; grid-row: 1/span 2;" onclick="fun('-')">-</button>
+        <button style="grid-column: 25/span 2; grid-row: 1/span 2;" onclick="fun('=')">=</button>
+        <button style="grid-column: 27/span 4; grid-row: 1/span 2;" onclick="backspace()">Backspace</button>
+        <button style="grid-column: 1/span 4; grid-row: 3/span 2;" onclick="tabspace()">Tab</button>
+        <button style="grid-column: 5/span 2; grid-row: 3/span 2;" onclick="fun('Q')">Q</button>
+        <button style="grid-column: 7/span 2; grid-row: 3/span 2;" onclick="fun('W')">W</button>
+        <button style="grid-column: 9/span 2; grid-row: 3/span 2;" onclick="fun('E')">E</button>
+        <button style="grid-column: 11/span 2; grid-row: 3/span 2;" onclick="fun('R')">R</button>
+        <button style="grid-column: 13/span 2; grid-row: 3/span 2;" onclick="fun('T')">T</button>
+        <button style="grid-column: 15/span 2; grid-row: 3/span 2;" onclick="fun('Y')">Y</button>
+        <button style="grid-column: 17/span 2; grid-row: 3/span 2;" onclick="fun('U')">U</button>
+        <button style="grid-column: 19/span 2; grid-row: 3/span 2;" onclick="fun('I')">I</button>
+        <button style="grid-column: 21/span 2; grid-row: 3/span 2;" onclick="fun('O')">O</button>
+        <button style="grid-column: 23/span 2; grid-row: 3/span 2;" onclick="fun('P')">P</button>
+        <button style="grid-column: 25/span 2; grid-row: 3/span 2;" onclick="fun('[')">[</button>
+        <button style="grid-column: 27/span 2; grid-row: 3/span 2;" onclick="fun(']')">]</button>
+        <button style="grid-column: 29/span 2; grid-row: 3/span 2;" onclick="fun('\\')">\</button>
+        <button style="grid-column: 1/span 4; grid-row: 5/span 2;" onclick="caps(this)">Caps Lock</button>
+        <button style="grid-column: 5/span 2; grid-row: 5/span 2;" onclick="fun('A')">A</button>
+        <button style="grid-column: 7/span 2; grid-row: 5/span 2;" onclick="fun('S')">S</button>
+        <button style="grid-column: 9/span 2; grid-row: 5/span 2;" onclick="fun('D')">D</button>
+        <button style="grid-column: 11/span 2; grid-row: 5/span 2;" onclick="fun('F')">F</button>
+        <button style="grid-column: 13/span 2; grid-row: 5/span 2;" onclick="fun('G')">G</button>
+        <button style="grid-column: 15/span 2; grid-row: 5/span 2;" onclick="fun('H')">H</button>
+        <button style="grid-column: 17/span 2; grid-row: 5/span 2;" onclick="fun('J')">J</button>
+        <button style="grid-column: 19/span 2; grid-row: 5/span 2;" onclick="fun('K')">K</button>
+        <button style="grid-column: 21/span 2; grid-row: 5/span 2;" onclick="fun('L')">L</button>
+        <button style="grid-column: 23/span 2; grid-row: 5/span 2;" onclick="fun(';')">;</button>
+        <button style="grid-column: 25/span 2; grid-row: 5/span 2;" onclick="fun('\'')">'</button>
+        <button style="grid-column: 27/span 4; grid-row: 5/span 2;" onclick="enter()">Enter</button>
+        <button style="grid-column: 1/span 5; grid-row: 7/span 2;" onclick="shift()">Shift</button>
+        <button style="grid-column: 6/span 2; grid-row: 7/span 2;" onclick="fun('Z')">Z</button>
+        <button style="grid-column: 8/span 2; grid-row: 7/span 2;" onclick="fun('X')">X</button>
+        <button style="grid-column: 10/span 2; grid-row: 7/span 2;" onclick="fun('C')">C</button>
+        <button style="grid-column: 12/span 2; grid-row: 7/span 2;" onclick="fun('V')">V</button>
+        <button style="grid-column: 14/span 2; grid-row: 7/span 2;" onclick="fun('B')">B</button>
+        <button style="grid-column: 16/span 2; grid-row: 7/span 2;" onclick="fun('N')">N</button>
+        <button style="grid-column: 18/span 2; grid-row: 7/span 2;" onclick="fun('M')">M</button>
+        <button style="grid-column: 20/span 2; grid-row: 7/span 2;" onclick="fun(',')">,</button>
+        <button style="grid-column: 22/span 2; grid-row: 7/span 2;" onclick="fun('.')">.</button>
+        <button style="grid-column: 24/span 2; grid-row: 7/span 2;" onclick="fun('/')">/</button>
+        <button style="grid-column: 26/span 5; grid-row: 7/span 2;" onclick="shift()">Shift</button>
+        <button style="grid-column: 1/span 2; grid-row: 9/span 2;" onclick="ctrl()">Ctrl</button>
+        <button style="grid-column: 3/span 2; grid-row: 9/span 2;" onclick="fn()">Fn</button>
+        <button style="grid-column: 5/span 2; grid-row: 9/span 2;" onclick="win()">Win</button>
+        <button style="grid-column: 7/span 2; grid-row: 9/span 2;" onclick="alt()">Alt</button>
+        <button style="grid-column: 9/span 12; grid-row: 9/span 2;" onclick="space()">Space</button>
+        <button style="grid-column: 21/span 2; grid-row: 9/span 2;" onclick="alt()">Alt</button>
+        <button style="grid-column: 23/span 2; grid-row: 9/span 2;" onclick="ctrl()">Ctrl</button>
+        <button style="grid-column: 25/span 2; grid-row: 9/span 2;" onclick="lft()">Left</button>
+        <button style="grid-column: 27/span 2; grid-row: 9/span 1;" onclick="upp()">Up</button>
+        <button style="grid-column: 27/span 2; grid-row: 10/span 1;" onclick="dwn()">Down</button>
+        <button style="grid-column: 29/span 2; grid-row: 9/span 2;" onclick="rgt()">Right</button>
+    </div>
+
+
+    <script>
+        let f=0
+        var rs=""
+        function fun(s)
+        {
+            if(f==1)
+            {
+                rs=rs+s.toUpperCase()
+                document.getElementById("t1").value = rs
+            }
+            else
+            {
+                rs=rs+s.toLowerCase()
+                document.getElementById("t1").value = rs
+            }
+        }
+        function backspace()
+        {
+            rs=rs.slice(0,rs.length-1)
+            document.getElementById("t1").value = rs
+        }
+        function tabspace()
+        {
+            rs=rs+"    "
+            document.getElementById("t1").value = rs
+        }
+        function enter()
+        {
+            rs=rs+ "\n"
+            document.getElementById("t1").value = rs
+        }
+        function space()
+        {
+            rs=rs+" "
+            document.getElementById("t1").value = rs
+        }
+        function caps(e)
+        {
+            if(e.style.backgroundColor=="yellow")
+            {
+                f=0
+                e.style.backgroundColor=""
+            }
+            else
+            {
+                f=1
+                e.style.backgroundColor="yellow"
+            }
+        }
+
+    </script>
+
+</body>
+</html>
